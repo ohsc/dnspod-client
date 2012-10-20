@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dnspod-client by ohsc</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Dnspod-client</h1>
+        <p>A client of DNSPod</p>
+        <p class="view"><a href="https://github.com/ohsc/dnspod-client">View the Project on GitHub <small>ohsc/dnspod-client</small></a></p>
+        <ul>
+          <li><a href="https://github.com/ohsc/dnspod-client/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ohsc/dnspod-client/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ohsc/dnspod-client">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Dnspod-client</h1>
+
+<p>Dnspod-client is a client of <a href="https://www.dnspod.com">DNSPod</a>.
+It was originally designed for use with <a href="http://nodejs.org">node.js</a>.</p>
+
+<h2>Quick Examples</h2>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Dnspod</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dnspod-client'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dnspod</span><span class="p">({</span>
+    <span class="s1">'login_email'</span><span class="o">:</span> <span class="s1">'test@test.com'</span><span class="p">,</span>
+    <span class="s1">'login_password'</span><span class="o">:</span> <span class="s1">'test'</span>
+<span class="p">});</span>
+
+<span class="nx">client</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'domainList'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// done();</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="nx">domainList</span><span class="p">({</span><span class="nx">length</span><span class="o">:</span><span class="mi">5</span><span class="p">});</span>
+
+<span class="nx">client</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'getHostIp'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">message</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'get IP address: '</span> <span class="o">+</span> <span class="nx">message</span><span class="p">);</span>
+        <span class="c1">// done();</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="nx">getHostIp</span><span class="p">();</span>
+
+</pre></div>
+
+<h2>Download</h2>
+
+<p>You can install using Node Package Manager (npm):</p>
+
+<pre><code>npm install dnspod-client
+</code></pre>
+
+<h2>License</h2>
+
+<p>Copyright (c) 2012 Chao Shen. This software is licensed under the BSD License.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/ohsc">ohsc</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-329619-8");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
