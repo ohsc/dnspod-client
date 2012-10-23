@@ -56,9 +56,15 @@ Dnspod.prototype.request = function(url, params, eventListenerName){
         }).on('end', function() {
             try {
                 var jsonData = JSON.parse(resData.join(''));
-                self.emit(eventListenerName, null, jsonData);
             } catch (ex) {
-                self.emit(eventListenerName, new Error('Request failed'));
+                console.log(ex);
+                var err = ex;
+            } finally {
+                if(err) {
+                    self.emit(eventListenerName, new Error('Request failed'));
+                } else {
+                    self.emit(eventListenerName, null, jsonData);
+                }
             }
         });
     };
