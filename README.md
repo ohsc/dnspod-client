@@ -1,6 +1,6 @@
 # Dnspod-client
 
-Dnspod-client is a client of [DNSPod](https://www.dnspod.com).
+Dnspod-client is a client of [DNSPod](http://www.dnspod.cn).
 It was originally designed for use with [node.js](http://nodejs.org).
 
 
@@ -38,8 +38,9 @@ client.on('getHostIp', function(err, message){
 
 You can install using Node Package Manager (npm):
 
-    npm install dnspod-client
-
+```sh
+npm install dnspod-client
+```
 
 
 ## License
