@@ -7,29 +7,32 @@ It was originally designed for use with [node.js](http://nodejs.org).
 ## Quick Examples
 
 ```javascript
-var Dnspod = require('dnspod-client');
+var Dnspod = require('dnspod-client'),
+    client = new Dnspod({
+        'login_email': 'test@test.com',
+        'login_password': 'test'
+    });
 
-var client = new Dnspod({
-    'login_email': 'test@test.com',
-    'login_password': 'test'
-});
+client
+    .domainList({length: 5})
+    .on('domainList', function (err, data) {
+        if (err) {
+            throw err;
+        } else {
+            done();
+        }
+    });
 
-client.on('domainList',function(err, data){
-    if (err) {
-        throw err;
-    } else {
-        // done();
-    }
-}).domainList({length:5});
-
-client.on('getHostIp', function(err, message){
-    if (err) {
-        throw err;
-    } else {
-        console.log('get IP address: ' + message);
-        // done();
-    }
-}).getHostIp();
+client
+    .getHostIp()
+    .on('getHostIp', function (err, message) {
+        if (err) {
+            throw err;
+        } else {
+            console.log('get IP address: ' + message);
+            done();
+        }
+    });
 
 ```
 
