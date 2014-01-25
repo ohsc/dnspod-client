@@ -69,6 +69,8 @@ Dnspod.prototype.getHostIp = function () {
         process.nextTick(function () {
             self.emit('getHostIp', null, message);
         });
+    }).on('error', function (err) {
+        self.emit('error', err);
     });
     return self;
 };
@@ -117,6 +119,9 @@ Dnspod.prototype.request = function (url, params, eventListenerName) {
     };
 
     req = HTTPS.request(postOptions, requestCallback);
+    req.on('error', function (err) {
+        self.emit('error', err);
+    });
     req.write(postData);
     req.end();
     return self;
